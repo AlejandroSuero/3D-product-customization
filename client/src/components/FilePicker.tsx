@@ -8,9 +8,14 @@ const FilePicker = ({
   readFile
 }: {
   file: File,
-  setFile: Dispatch<SetStateAction<string>>,
+  setFile: Dispatch<SetStateAction<File>>,
   readFile: (type: "logo" | "full") => void
 }) => {
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) setFile(e.target.files[0]);
+  };
+
   return (
     <div className="filepicker-container">
       <div className="flex-1 flex flex-col">
@@ -18,7 +23,7 @@ const FilePicker = ({
           id="file-upload"
           type="file"
           accept="image/*"
-          onChange={(e) => setFile(e.target.files[0])}
+          onChange={handleChange}
         />
         <label htmlFor="file-upload" className="filepicker-label">
           Upload File

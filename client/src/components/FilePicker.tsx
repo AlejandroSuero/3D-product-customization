@@ -34,10 +34,10 @@ const FilePicker = ({
       </div>
       <div className="mt-4 flex flex-wrap gap-3">
         <Button
-          type="filled"
+          type="outlined"
           title="Logo"
           handleClick={() => readFile("logo")}
-          customStyles="text-xs"
+          customStyles="text-md font-normal px-2 py-1 rounded-md"
         />
       </div>
     </div>

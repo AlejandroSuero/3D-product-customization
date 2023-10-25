@@ -16,9 +16,9 @@ export const downloadCanvasToImage = () => {
 
 export const reader = (file: Blob) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  new Promise((resolve, _) => {
+  return new Promise<string>((resolve, _) => {
     const fileReader = new FileReader();
-    fileReader.onload = () => resolve(fileReader.result);
+    fileReader.onload = () => resolve(fileReader.result as string);
     fileReader.readAsDataURL(file);
   });
 };

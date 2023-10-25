@@ -21,7 +21,6 @@ const Tab = ({
   const activeStyle: CSSProperties = isFilterTab && isActiveTab
     ? { backgroundColor: snapshot.color, opacity: 0.5 }
     : { backgroundColor: "transparent", opacity: 1 };
-  console.log(isFilterTab, isActiveTab, tab, handleClick);
   return (
     <div
       key={tab.name}

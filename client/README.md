@@ -9,6 +9,7 @@ Client side for the application, built with React + TypeScript + Vite.
 - UI:
   - Tailwindcss
   - React-color
+  - Framer-motion
   - ThreeJS
   - React-three:
     - Fiber

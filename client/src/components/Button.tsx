@@ -14,8 +14,8 @@ const Button = ({
   customStyles?: string
 }) => {
   customStyles = type === "filled"
-    ? `${customStyles} hover:bg-indigo-500 bg-indigo-600 text-white border-2 border-transparent transition-colors ease`
-    : `${customStyles} hover:bg-indigo-600 hover:text-white text-indigo-600 border-2 border-indigo-600 transition-colors ease`;
+    ? `${customStyles} hover:bg-aoi-700 bg-aoi-800 text-aoi-50 border-2 border-transparent transition-colors ease`
+    : `${customStyles} hover:bg-aoi-700 hover:border-transparent text-aoi-200 border-2 border-aoi-200 transition-colors ease`;
   return (
     <button onClick={handleClick} className={customStyles}>{title}</button>
   );

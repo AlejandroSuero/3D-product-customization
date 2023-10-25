@@ -1,4 +1,5 @@
 import { Button } from ".";
+import { imagePreview } from "../assets";
 
 import type { Dispatch, SetStateAction } from "react";
 
@@ -7,8 +8,8 @@ const FilePicker = ({
   setFile,
   readFile
 }: {
-  file: File,
-  setFile: Dispatch<SetStateAction<File>>,
+  file: File | null,
+  setFile: Dispatch<SetStateAction<File | null>>,
   readFile: (type: "logo" | "full") => void
 }) => {
 
@@ -29,15 +30,41 @@ const FilePicker = ({
           Upload File
         </label>
         <p className="mt-2 text-gray-100 text-xs truncate">
-          {!file ? "No file selected" : file.name}
+          {!file ? "No file selected" : `file: ${file.name}`}
         </p>
       </div>
+      <picture className="flex-1 flex gap-3 flex-col">
+        <header>
+          <p className="text-aoi-50">Image preview:</p>
+        </header>
+        {file ? (
+          <img
+            src={URL.createObjectURL(file)}
+            title={`Image ${file.name}`}
+            alt={`Preview image from ${file.name}`}
+            className="w-28 aspect-auto m-auto"
+          />
+        ): (
+          <img
+            src={imagePreview}
+            title="Image preview"
+            alt="Image acting as placeholder for the preview"
+            className="w-28 aspect-auto m-auto"
+          />
+        )}
+      </picture>
       <div className="mt-4 flex flex-wrap gap-3">
         <Button
           type="outlined"
-          title="Logo"
+          title="Apply logo"
           handleClick={() => readFile("logo")}
-          customStyles="text-md font-normal px-2 py-1 rounded-md"
+          customStyles="text-xs font-normal px-2 py-1 rounded-md"
+        />
+        <Button
+          type="filled"
+          title="Apply texture"
+          handleClick={() => readFile("full")}
+          customStyles="text-xs font-normal px-2 py-1 rounded-md"
         />
       </div>
     </div>

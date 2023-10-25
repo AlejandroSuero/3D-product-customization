@@ -18,7 +18,7 @@ const initialActiveTab: ActiveTabType = { logoShirt: true, stylishShirt: false }
 
 const Customizer = () => {
   const snapshot = useSnapshot(state);
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState<File>(new File([], ""));
   const [prompt, setPrompt] = useState("");
   const [generatingTexture, setGeneratingTexture] = useState(false);
   const [activeEditorTab, setActiveEditorTab] = useState("");

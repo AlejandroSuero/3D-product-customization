@@ -18,7 +18,7 @@ const initialActiveTab: ActiveTabType = { logoShirt: true, stylishShirt: false }
 
 const Customizer = () => {
   const snapshot = useSnapshot(state);
-  const [file, setFile] = useState<File>(new File([], ""));
+  const [file, setFile] = useState<File | null>(null);
   const [prompt, setPrompt] = useState("");
   const [generatingTexture, setGeneratingTexture] = useState(false);
   const [activeEditorTab, setActiveEditorTab] = useState("");
@@ -65,6 +65,7 @@ const Customizer = () => {
   };
 
   const readFile = (type: "logo" | "full") => {
+    if (!file) return;
     reader(new Blob([file], { type: "image/*" }))
       .then((result) => {
         handleDecals(type, result);

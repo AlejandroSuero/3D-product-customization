@@ -60,7 +60,7 @@ const Customizer = () => {
       const data = await response.json();
       handleDecals(type, `data:image/png;base64,${data.photo}`);
     } catch (err) {
-      alert("An error ocurred during the submission");
+      alert("An error ocurred during the submission\n" + err);
     } finally {
       setGeneratingTexture(false);
       setActiveEditorTab("");

@@ -1,12 +1,14 @@
-import { easing } from "maath";
 import { useRef } from "react";
-import { useFrame, ReactThreeFiber } from "@react-three/fiber";
 import { AccumulativeShadows, RandomizedLight } from "@react-three/drei";
 
+import state from "../store";
+
 import type { IAccumulativeContext } from "../types";
+import { useSnapshot } from "valtio";
 
 const Backdrop = () => {
   const shadowsRef = useRef() as React.MutableRefObject<IAccumulativeContext>;
+  const snapshot = useSnapshot(state);
   return (
     <AccumulativeShadows
       ref={shadowsRef}
@@ -16,6 +18,7 @@ const Backdrop = () => {
       scale={5}
       rotation={[Math.PI / 2, 0, 0]}
       position={[0, 0, -0.14]}
+      color={snapshot.color}
     >
       <RandomizedLight
         amount={4}

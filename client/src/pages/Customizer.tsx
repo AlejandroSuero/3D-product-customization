@@ -33,9 +33,38 @@ const Customizer = () => {
         readFile={readFile}
       />;
     case "aiPrompt":
-      return <AiPrompt />;
+      return <AiPrompt
+        prompt={prompt}
+        setPrompt={setPrompt}
+        generatingTexture={generatingTexture}
+        handleSubmit={handleSubmit}
+      />;
     default:
       return null;
+    }
+  };
+
+  const handleSubmit = async (type: TextureType) => {
+    if (!prompt) return alert("Please enter a prompt");
+    try {
+      setGeneratingTexture(true);
+      const url = process.env.NODE_ENV === "production" ? config.production.backendUrl : config.development.backendUrl;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ prompt })
+      });
+
+      const data = await response.json();
+      handleDecals(type, `data:image/png;base64,${data.photo}`);
+    } catch (err) {
+      alert("An error ocurred during the submission");
+    } finally {
+      setGeneratingTexture(false);
+      setActiveEditorTab("");
+      setPrompt("");
     }
   };
 

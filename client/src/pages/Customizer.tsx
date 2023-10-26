@@ -20,7 +20,7 @@ const Customizer = () => {
   const [prompt, setPrompt] = useState("");
   const [generatingTexture, setGeneratingTexture] = useState(false);
   const [activeEditorTab, setActiveEditorTab] = useState("");
-  const [activeFilterTab, setFilterEditorTab] = useState(initialActiveTab);
+  const [activeFilterTab, setActiveFilterTab] = useState(initialActiveTab);
 
   const generateTabContent = () => {
     switch (activeEditorTab) {
@@ -52,6 +52,12 @@ const Customizer = () => {
       state.isFullTexture = false;
       break;
     }
+    setActiveFilterTab((prevState) => {
+      return {
+        ...prevState,
+        [tabName]: !prevState[tabName]
+      };
+    });
   };
 
   const handleDecals = (type: TextureType, result: string) => {
@@ -103,11 +109,8 @@ const Customizer = () => {
                 key={tab.name}
                 tab={tab}
                 isFilterTab
-                isActiveTab=""
-                handleClick={() => setFilterEditorTab({
-                  [tab.name]: true,
-                  ...initialActiveTab
-                })}
+                isActiveTab={activeFilterTab[tab.name as keyof typeof activeFilterTab]}
+                handleClick={() => handleActiveFilterTab(tab.name as TabName)}
               />
             ))}
           </motion.aside>

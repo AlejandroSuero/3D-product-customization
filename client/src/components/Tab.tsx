@@ -15,7 +15,7 @@ const Tab = ({
   tab: TabType,
   handleClick: MouseEventHandler,
   isFilterTab?: boolean,
-  isActiveTab?: string
+  isActiveTab?: boolean
 }) => {
   const snapshot = useSnapshot(state);
   const activeStyle: CSSProperties = isFilterTab && isActiveTab

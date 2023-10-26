@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
 
@@ -142,6 +142,16 @@ const Customizer = () => {
                 handleClick={() => handleActiveFilterTab(tab.name as TabName)}
               />
             ))}
+            <button
+              className="download-btn"
+              onClick={downloadCanvasToImage}
+            >
+              <img
+                src={download}
+                alt="download image button icon"
+                className="w-3/5 h-3/5 object-contain"
+              />
+            </button>
           </motion.aside>
         </main>
       )}

@@ -8,7 +8,7 @@ export const downloadCanvasToImage = () => {
   const link = document.createElement("a");
 
   link.href = dataUrl;
-  link.download = "canvas.png"; 
+  link.download = "Your_customized_product.png"; 
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

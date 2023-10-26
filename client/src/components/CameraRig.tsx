@@ -8,7 +8,7 @@ import type { MutableRefObject } from "react";
 
 import state from "../store";
 
-type ThreeDPosition = [x: number, y: number, z: number];
+import type { ThreeDPosition } from "../types";
 
 const CameraRig = ({
   children

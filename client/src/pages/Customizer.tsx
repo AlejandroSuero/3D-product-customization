@@ -10,9 +10,7 @@ import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import { AiPrompt, Button, ColorPicker, FilePicker, Tab } from "../components";
 
-import type { DecalStateType } from "../config/constants";
-
-type ActiveTabType = { logoShirt: boolean, stylishShirt: boolean };
+import type { ActiveTabType, DecalStateType, TabName, TextureType } from "../types";
 
 const initialActiveTab: ActiveTabType = { logoShirt: true, stylishShirt: false };
 
@@ -41,7 +39,7 @@ const Customizer = () => {
     }
   };
 
-  const handleActiveFilterTab = (tabName: "logoShirt" | "stylishShirt") => {
+  const handleActiveFilterTab = (tabName: TabName) => {
     switch (tabName) {
     case "logoShirt":
       state.isLogoTexture = !activeFilterTab[tabName];
@@ -56,7 +54,7 @@ const Customizer = () => {
     }
   };
 
-  const handleDecals = (type: "logo" | "full", result: string) => {
+  const handleDecals = (type: TextureType, result: string) => {
     const decalType: DecalStateType = DecalTypes[type];
     state[decalType.stateProperty] = result;
     if (!activeFilterTab[decalType.filterTab]) {
@@ -64,7 +62,7 @@ const Customizer = () => {
     }
   };
 
-  const readFile = (type: "logo" | "full") => {
+  const readFile = (type: TextureType) => {
     if (!file) return;
     reader(new Blob([file], { type: "image/*" }))
       .then((result) => {
@@ -99,7 +97,7 @@ const Customizer = () => {
               customStyles="w-fit px-4 py-2.5 font-bold text-sm rounded-md"
             />
           </motion.div>
-          <motion.div className="filtertabs-container" {...slideAnimation("up")}>
+          <motion.aside className="filtertabs-container" {...slideAnimation("up")}>
             { FilterTabs.map((tab) => (
               <Tab
                 key={tab.name}
@@ -112,7 +110,7 @@ const Customizer = () => {
                 })}
               />
             ))}
-          </motion.div>
+          </motion.aside>
         </main>
       )}
     </AnimatePresence>

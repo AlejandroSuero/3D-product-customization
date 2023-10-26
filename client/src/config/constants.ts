@@ -1,9 +1,6 @@
 import { swatch, fileIcon, ai, logoShirt, stylishShirt } from "../assets";
 
-export type TabType = { name: string, icon: string, alt: string, title: string};
-export type TabsType = TabType[];
-export type DecalStateType = { stateProperty: "logoDecal" | "fullDecal", filterTab: "logoShirt" | "stylishShirt" };
-export type DecalType = { logo: DecalStateType, full: DecalStateType };
+import type { TabsType, DecalType } from "../types";
 
 export const EditorTabs: TabsType = [
   {

@@ -1,6 +1,6 @@
 import type { MouseEventHandler } from "react";
 
-type ButtonType = "filled" | "outlined";
+import type { ButtonType } from "../types";
 
 const Button = ({
   type,

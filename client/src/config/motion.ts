@@ -1,20 +1,8 @@
 import type { Transition } from "framer-motion";
 
-export const transition: Transition = { type: "spring", duration: 0.8 };
+import type { DirectionType, AnimationType } from "../types";
 
-type DirectionType = "left" | "right" | "up" | "down";
-type AnimationValueType = {
-  x?: number,
-  y?: number,
-  opacity?: number,
-  transition?: Transition
-};
-type AnimationType = {
-  initial?: AnimationValueType,
-  animate?: AnimationValueType,
-  exit?: AnimationValueType,
-  transition?: Transition
-}
+export const transition: Transition = { type: "spring", duration: 0.8 };
 
 export const slideAnimation = (direction: DirectionType): AnimationType => {
   return {
@@ -38,7 +26,7 @@ export const slideAnimation = (direction: DirectionType): AnimationType => {
   };
 };
 
-export const fadeAnimation = {
+export const fadeAnimation: AnimationType = {
   initial: {
     opacity: 0,
     transition: { ...transition, delay: 0.5 },
@@ -53,7 +41,7 @@ export const fadeAnimation = {
   },
 };
 
-export const headTextAnimation = {
+export const headTextAnimation: AnimationType = {
   initial: { x: 100, opacity: 0 },
   animate: { x: 0, opacity: 1 },
   transition: {
@@ -65,7 +53,7 @@ export const headTextAnimation = {
   },
 };
 
-export const headContentAnimation = {
+export const headContentAnimation: AnimationType = {
   initial: { y: 100, opacity: 0 },
   animate: { y: 0, opacity: 1 },
   transition: {
@@ -79,7 +67,7 @@ export const headContentAnimation = {
   },
 };
 
-export const headContainerAnimation = {
+export const headContainerAnimation: AnimationType = {
   initial: { x: -100, opacity: 0, transition: { ...transition, delay: 0.5 } },
   animate: { x: 0, opacity: 1, transition: { ...transition, delay: 0 } },
   exit: { x: -100, opacity: 0, transition: { ...transition, delay: 0 } },

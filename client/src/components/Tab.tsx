@@ -4,7 +4,7 @@ import state from "../store";
 
 import type { CSSProperties, MouseEventHandler } from "react";
 
-import type { TabType } from "../config/constants";
+import type { TabType } from "../types";
 
 const Tab = ({
   tab,

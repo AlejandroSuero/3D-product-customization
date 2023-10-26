@@ -2,20 +2,10 @@ import { easing } from "maath";
 import { useSnapshot } from "valtio";
 import { useFrame } from "@react-three/fiber";
 import { Decal, useGLTF, useTexture } from "@react-three/drei";
-import THREE from "three";
 
-import type { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
+import type { GLTFResult } from "../types";
 
 import state from "../store";
-
-type GLTFResult = GLTF & {
-  nodes: {
-    T_Shirt_male: THREE.Mesh;
-  };
-  materials: {
-    ["lambert1"]: THREE.MeshStandardMaterial;
-  };
-}
 
 const Shirt = () => {
   const snapshot = useSnapshot(state);

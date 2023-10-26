@@ -1,11 +1,4 @@
-interface ProjectConfig {
-  development: {
-    backendUrl: string;
-  };
-  production: {
-    backendUrl: string;
-  };
-}
+import { ProjectConfig } from "../types";
 
 export const config: ProjectConfig = {
   development: {

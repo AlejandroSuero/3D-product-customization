@@ -15,7 +15,7 @@
 
   @supports not (text-wrap: balance) {
     .text-balance {
-      @apply xl:max-w-[550px] max-w-lg;
+      @apply xl:w-[550px] w-screen xl:pr-0 pr-7;
     }
   }
 }
@@ -43,7 +43,7 @@ html {
 }
 
 .head-text {
-  @apply xl:text-[10rem] text-[6rem] xl:leading-[11rem] leading-[7rem] font-black text-aoi-50;
+  @apply xl:text-[10rem] text-[4rem] xl:leading-[11rem] leading-[4rem] font-black text-aoi-50;
 }
 
 .download-btn {
@@ -76,6 +76,13 @@ html {
 
 .tab-btn {
   @apply w-14 h-14 flex justify-center items-center cursor-pointer select-none;
+}
+
+.transitions {
+  transition:
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glassmorphism {

@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <AnimatePresence>
       {snapshot.intro && (
-        <motion.section className="home" {...slideAnimation("left")}>
-          <motion.header className="flex gap-2 items-center" {...slideAnimation("down")}>
+        <motion.section className="home mt-24 xl:mt-20" {...slideAnimation("left")}>
+          <motion.header className="flex gap-2 items-center absolute md:static -bottom-10" {...slideAnimation("down")}>
             <a href="https://threejs.org/" target="_blank" rel="noopener noreferrer">
               <img
                 src="./threejs.png"
@@ -25,10 +25,10 @@ const Home = () => {
           </motion.header>
           <motion.main className="home-content" {...headContainerAnimation}>
             <motion.header {...headTextAnimation}>
-              <h1 className="head-text xl:w-[550px] w-[600px]">LET'S <br className="xl:block hidden" /> DO IT.</h1>
+              <h1 className="head-text w-screen md:w-[600px]">LET'S <br className="block sm:hidden" /> DO IT.</h1>
             </motion.header>
             <motion.div className="flex flex-col gap-5" {...headContentAnimation}>
-              <p className="text-balance font-normal text-gray-400 text-base">Customize your unique and exclusive products with my brand-new 3D customization tool. <strong>Unleash your imagination</strong> and define your own style</p>
+              <p className="text-balance font-normal text-gray-400 text-xs sm:text-base w-screen md:w-[600px]">Customize your unique and exclusive products with my brand-new 3D customization tool. <strong>Unleash your imagination</strong> and define your own style</p>
               <Button type="filled" title="Start Customizing" handleClick={handleClick} customStyles="w-fit px-4 py-2.5 font-bold text-sm rounded-md tracking-wide" />
             </motion.div>
           </motion.main>

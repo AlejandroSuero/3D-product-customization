@@ -7,8 +7,8 @@ import { config } from "../config/config";
 import { download } from "../assets";
 import { downloadCanvasToImage, reader } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
-import { fadeAnimation, slideAnimation } from "../config/motion";
-import { AiPrompt, Button, ColorPicker, FilePicker, Tab } from "../components";
+import { slideAnimation } from "../config/motion";
+import { AiPrompt, ColorPicker, FilePicker, Tab } from "../components";
 
 import type { ActiveTabType, DecalStateType, TabName, TextureType } from "../types";
 

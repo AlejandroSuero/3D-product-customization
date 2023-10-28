@@ -124,14 +124,6 @@ const Customizer = () => {
               </div>
             </div>
           </motion.aside>
-          <motion.div className="absolute z-10 top-5 right-5" {...fadeAnimation}>
-            <Button
-              type="filled"
-              title="Home"
-              handleClick={() => state.intro = true}
-              customStyles="w-fit px-4 py-2.5 font-bold text-sm rounded-md"
-            />
-          </motion.div>
           <motion.aside className="filtertabs-container" {...slideAnimation("up")}>
             { FilterTabs.map((tab) => (
               <Tab
